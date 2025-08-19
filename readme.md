@@ -1,6 +1,6 @@
 # Completando uma api rest sem frameworks
 
->_Status do projeto: Em desenvolvimento._
+>_Status do projeto: Finalizado._
 
 ## Descrição do Projeto
 
