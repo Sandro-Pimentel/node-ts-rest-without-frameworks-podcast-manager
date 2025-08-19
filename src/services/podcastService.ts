@@ -1,3 +1,4 @@
+import { podcastsList } from "../data/podcasts";
 import { PodcastModel } from "../models/PodcastModel";
 import { alterPartialPodcastRepository, createPodcastRepository, getAllPodcastsRepository, getFilteredPoscastsRepository, getOnePodcastRepository, removePodcastRepository } from "../repositories/podcastRepository";
 import { PodcastDTO } from "../types/PodcastDTO";
@@ -21,7 +22,7 @@ export const getPodcastService = (podcastName?: string): PodcastDTO => {
         body: [],
     };
 
-    const queryString = podcastName?.split("?p=")[1] || "";
+    const queryString = podcastName?.split("?name=")[1] || "";
 
     const data = queryString ? getFilteredPoscastsRepository(queryString) : getAllPodcastsRepository();
 
@@ -42,8 +43,16 @@ export const patchPodcastService = (videoId: string, newData: PodcastModel) => {
     const podcastIndex = getOnePodcastRepository(videoId);
 
     if(podcastIndex) {
+        const newPodcast: PodcastModel = podcastsList[podcastIndex];
+
+        if(newData.podcastName) newPodcast.podcastName = newData.podcastName;
+
+        if(newData.episode) newPodcast.episode = newData.episode;
+
+        if(newData.categories) newPodcast.categories = newData.categories;
+        
         responseFormat.statusCode = StatusCode.OK;
-        alterPartialPodcastRepository(videoId, newData);
+        alterPartialPodcastRepository(videoId, newPodcast);
     } else responseFormat.statusCode = StatusCode.NotFound;
 
     return responseFormat;
