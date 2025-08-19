@@ -4,7 +4,7 @@
 
 ## Descrição do Projeto
 
-Foi criada uma api rest de gerenciamento de podcasts sem o uso de frameworks com o objetivo de compreender "por baixo dos panos" o funcionamento de uma api rest. Foram criadas as rotas de get e get com filtros para o nome. O objetivo é implementar os endpoints post, patch e delete da aplicação.
+Foi criada uma api rest de gerenciamento de podcasts sem o uso de frameworks com o objetivo de compreender "por baixo dos panos" o funcionamento de uma api rest. Foram criadas as rotas de get e get com filtros para o nome. O objetivo é implementar os endpoints post, patch e delete da aplicação. <a href="https://github.com/felipeAguiarCode/node-ts-webapi-without-frameworks-podcast-menager">Link para projeto base </a> desenvolvido pelo instrutor.
 
 ## Endpoints
 
